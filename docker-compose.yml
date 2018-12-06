@@ -1,0 +1,13 @@
+---
+version: '3'
+services:
+  standard:
+    image: mackerel/mackerel-agent
+    container_name: mackerel-agent-standard
+    environment:
+      apikey: ${MACKEREL_API_KEY}
+      enable_docker_plugin: "true"
+      auto_retirement: "true"
+      opts: "-role=AdventCalendar:standard"
+    volumes:
+      - ./volumes/standard:/etc/mackerel-agent
