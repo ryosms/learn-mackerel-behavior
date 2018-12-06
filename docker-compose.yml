@@ -21,3 +21,13 @@ services:
       opts: "-role=AdventCalendar:standard"
     volumes:
       - ./volumes/other_opts:/etc/mackerel-agent
+  same_opts:
+    image: mackerel/mackerel-agent
+    container_name: mackerel-agent-same_opts
+    environment:
+      apikey: ${MACKEREL_API_KEY}
+      enable_docker_plugin: "true"
+      auto_retirement: "true"
+      opts: "-role=AdventCalendar:standard"
+    volumes:
+      - ./volumes/same_opts:/etc/mackerel-agent
