@@ -45,4 +45,15 @@ services:
     volumes:
       - ./volumes/empty_key:/etc/mackerel-agent
       - /var/run/docker.sock:/var/run/docker.sock:ro
+  ro_conf:
+    image: mackerel/mackerel-agent
+    container_name: mackerel-agent-ro_conf
+    environment:
+      apikey: ${MACKEREL_API_KEY}
+      enable_docker_plugin: "true"
+      auto_retirement: "true"
+      opts: "-role=AdventCalendar:standard"
+    volumes:
+      - ./volumes/ro_conf:/etc/mackerel-agent:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
 
