@@ -11,6 +11,7 @@ services:
       opts: "-role=AdventCalendar:standard"
     volumes:
       - ./volumes/standard:/etc/mackerel-agent
+      - /var/run/docker.sock:/var/run/docker.sock:ro
   other_opts:
     image: mackerel/mackerel-agent
     container_name: mackerel-agent-other_opts
@@ -21,6 +22,7 @@ services:
       opts: "-role=AdventCalendar:standard"
     volumes:
       - ./volumes/other_opts:/etc/mackerel-agent
+      - /var/run/docker.sock:/var/run/docker.sock:ro
   same_opts:
     image: mackerel/mackerel-agent
     container_name: mackerel-agent-same_opts
@@ -31,3 +33,4 @@ services:
       opts: "-role=AdventCalendar:standard"
     volumes:
       - ./volumes/same_opts:/etc/mackerel-agent
+      - /var/run/docker.sock:/var/run/docker.sock:ro
